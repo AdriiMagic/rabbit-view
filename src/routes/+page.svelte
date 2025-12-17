@@ -25,15 +25,21 @@
 <!-- unser Template / HTML-Teil der Seite bzw. der Komponente -->
 <h1 class="text-3xl">Our Rabbits</h1>
 
-<div class="grid w-[200px] grid-cols-[32px_1fr_32px_32px] items-end">
+<div class="grid w-[200px] grid-cols-[32px_1fr_1fr_1fr_1fr_32px_32px] items-end gap-4">
 	<div>Nr.</div>
 	<div>Name</div>
+	<div>Hasenbau</div>
+	<div>Fellfarbe</div>
+	<div>Geschlecht</div>
 	<div></div>
 	<div></div>
 
-	{#each store.rabbits as rabbit, index}
+	{#each store.rabbits as rabbit, index (rabbit.id)}
 		<div class="pr-3 text-right">{index + 1}</div>
 		<div class="pr-3">{rabbit.name}</div>
+		<div class="pr-3">{rabbit.expand.rabbithole.name}</div>
+		<div class="pr-3">{rabbit.Fellfarbe}</div>
+		<div class="pr-3">{rabbit.Geschlecht}</div>
 		<div class="pr-3">
 			<button
 				onclick={() => {
